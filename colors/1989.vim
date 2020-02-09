@@ -134,15 +134,15 @@ hi! link rubyInterpolationDelimiter Conditional
 hi! link erubyDelimiter Pmenu
 hi! link erubyRailsMethod Constant
 
-hi! link htmlTag Pmenu
-hi! link htmlEndTag Pmenu
-hi! link htmlTagName Pmenu
-hi! link htmlArg Pmenu
-hi! link htmlSpecialChar Directory
+" hi! link htmlTag Pmenu
+" hi! link htmlEndTag Pmenu
+" hi! link htmlTagName Pmenu
+" hi! link htmlArg Pmenu
+" hi! link htmlSpecialChar Directory
 
-hi! link javaScriptFunction Constant
-hi! link javaScriptRailsFunction Constant
-hi! link javaScriptBraces Pmenu
+" hi! link javaScriptFunction Constant
+" hi! link javaScriptRailsFunction Constant
+" hi! link javaScriptBraces Pmenu
 
 hi! link yamlKey Conditional
 hi! link yamlAnchor Pmenu
@@ -151,14 +151,14 @@ hi! link yamlDocumentHeader Label
 hi! link yamlPlainScalar String
 hi! link yamlBlockCollectionItemStart Conditional
 
-hi! link cssURL DiffDelete
-hi! link cssFunctionName Constant
-hi! link cssColor Directory
-hi! link cssPseudoClassId Label
-hi! link cssClassName Label
-hi! link cssValueLength Directory
-hi! link cssCommonAttr Constant
-hi! link cssBraces Pmenu
+" hi! link cssURL DiffDelete
+" hi! link cssFunctionName Constant
+" hi! link cssColor Directory
+" hi! link cssPseudoClassId Label
+" hi! link cssClassName Label
+" hi! link cssValueLength Directory
+" hi! link cssCommonAttr Constant
+" hi! link cssBraces Pmenu
 
 hi! link jsThis Conditional
 hi! link jsBraces Function
