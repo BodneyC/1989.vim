@@ -10,7 +10,8 @@ endif
 let g:colors_name = "1989"
 
 let s:dark_gray     = [236, "#303030"]
-let s:mid_gray      = [102, "#878787"]
+let s:mid_gray      = [245, "#585858"]
+let s:light_gray      = [102, "#878787"]
 let s:default_white = [231, "#FFFFFF"]
 
 let s:lavender      = [183, "#dfafff"]
@@ -41,14 +42,16 @@ endfun
 
 call <SID>set_hi("Normal",           s:default_white, s:dark_gray,     "NONE")
 call <SID>set_hi("Cursor",           s:dark_gray,     s:default_white, "NONE")
-call <SID>set_hi("Visual",           s:none,          s:mid_gray,      "NONE")
+call <SID>set_hi("Visual",           s:none,          s:light_gray,    "NONE")
 call <SID>set_hi("CursorLine",       s:none,          s:dark_gray,     "NONE")
-call <SID>set_hi("LineNr",           s:mid_gray,      s:dark_gray,     "NONE")
-call <SID>set_hi("VertSplit",        s:mid_gray,      s:mid_gray,      "NONE")
+call <SID>set_hi("LineNr",           s:light_gray,    s:dark_gray,     "NONE")
+call <SID>set_hi("VertSplit",        s:light_gray,    s:light_gray,    "NONE")
 call <SID>set_hi("MatchParen",       s:pink,          s:none,          "underline")
-call <SID>set_hi("StatusLine",       s:default_white, s:mid_gray,      "bold")
-call <SID>set_hi("StatusLineNC",     s:default_white, s:mid_gray,      "NONE")
-call <SID>set_hi("Pmenu",            s:none,          s:none,          "NONE")
+call <SID>set_hi("StatusLine",       s:default_white, s:light_gray,    "bold")
+call <SID>set_hi("StatusLineNC",     s:default_white, s:light_gray,    "NONE")
+call <SID>set_hi("Pmenu",            s:dark_gray,     s:light_purple,  "NONE")
+call <SID>set_hi("PmenuSel",         s:dark_gray,     s:lavender,      "NONE")
+call <SID>set_hi("CocFloating",      s:default_white, s:mid_gray,      "NONE")
 call <SID>set_hi("IncSearch",        s:dark_gray,     s:light_yellow,  "NONE")
 call <SID>set_hi("Search",           s:none,          s:none,          "underline")
 call <SID>set_hi("Directory",        s:lavender,      s:none,          "NONE")
@@ -76,7 +79,6 @@ call <SID>set_hi("SyntasticWarning", s:dark_gray,     s:light_blue,    "NONE")
 
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
-hi! link PmenuSel Visual
 hi! link TabLine Normal
 hi! link TabLineFill Normal
 hi! link DiffChange Normal
