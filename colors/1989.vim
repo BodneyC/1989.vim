@@ -8,10 +8,11 @@ if exists("syntax_on")
 endif
 
 let g:colors_name = "1989"
+let g:bg_1989 = "#2D2934"
 
-let s:dark_gray     = [236, "#303030"]
+let s:dark_gray     = [236, g:bg_1989]
 let s:mid_gray      = [245, "#585858"]
-let s:light_gray      = [102, "#878787"]
+let s:light_gray    = [102, "#878787"]
 let s:default_white = [231, "#FFFFFF"]
 
 let s:lavender      = [183, "#dfafff"]
@@ -76,6 +77,9 @@ call <SID>set_hi("rubyBlock",        s:default_white, s:none,          "NONE")
 
 call <SID>set_hi("SyntasticError",   s:dark_gray,     s:pink,          "NONE")
 call <SID>set_hi("SyntasticWarning", s:dark_gray,     s:light_blue,    "NONE")
+
+hi! link CocWarningFloat CocFloating
+hi! link CocErrorFloat CocFloating
 
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
