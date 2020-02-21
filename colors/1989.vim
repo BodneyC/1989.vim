@@ -8,13 +8,16 @@ if exists("syntax_on")
 endif
 
 let g:colors_name = "1989"
-let g:bg_1989 = "#2D2934"
+let g:bg_1989 = "#303030"
+let g:off_1989 = "#383838"
 
 let s:dark_gray     = [236, g:bg_1989]
+let s:off_gray      = [240, g:off_1989]
 let s:mid_gray      = [245, "#585858"]
 let s:light_gray    = [102, "#878787"]
 let s:default_white = [231, "#FFFFFF"]
 
+let s:dark_lavender = [183, "#4f2f3f"]
 let s:lavender      = [183, "#dfafff"]
 let s:light_purple  = [225, "#ffdfff"]
 let s:gray_purple   = [146, "#afafd7"]
@@ -31,23 +34,19 @@ let s:dark_blue     = [31,  "#0087af"]
 let s:none          = ["NONE", ""]
 
 function! <SID>set_hi(name, fg, bg, style)
-  execute "hi " . a:name . " ctermfg=" . a:fg[0] . " ctermbg=" . a:bg[0] " cterm=" . a:style
-  if a:fg[1] != ""
-    execute "hi " . a:name . " guifg=" . a:fg[1]
-  endif
-  if a:bg[1] != ""
-    execute "hi " . a:name . " guibg=" . a:bg[1]
-  endif
-  execute "hi " . a:name . " gui=" . a:style
+  exec "hi " . a:name . " ctermfg=" . a:fg[0] . " ctermbg=" . a:bg[0] " cterm=" . a:style
+  if a:fg[1] != "" | exec "hi " . a:name . " guifg=" . a:fg[1] | endif
+  if a:bg[1] != "" | exec "hi " . a:name . " guibg=" . a:bg[1] | endif
+  exec "hi " . a:name . " gui=" . a:style
 endfun
 
 call <SID>set_hi("Normal",           s:default_white, s:dark_gray,     "NONE")
 call <SID>set_hi("Cursor",           s:dark_gray,     s:default_white, "NONE")
 call <SID>set_hi("Visual",           s:none,          s:light_gray,    "NONE")
-call <SID>set_hi("CursorLine",       s:none,          s:dark_gray,     "NONE")
+call <SID>set_hi("CursorLine",       s:none,          s:off_gray,      "NONE")
 call <SID>set_hi("LineNr",           s:light_gray,    s:dark_gray,     "NONE")
 call <SID>set_hi("VertSplit",        s:light_gray,    s:light_gray,    "NONE")
-call <SID>set_hi("MatchParen",       s:pink,          s:none,          "underline")
+call <SID>set_hi("MatchParen",       s:none,          s:dark_lavender,          "NONE")
 call <SID>set_hi("StatusLine",       s:default_white, s:light_gray,    "bold")
 call <SID>set_hi("StatusLineNC",     s:default_white, s:light_gray,    "NONE")
 call <SID>set_hi("Pmenu",            s:dark_gray,     s:light_purple,  "NONE")
@@ -78,6 +77,25 @@ call <SID>set_hi("rubyBlock",        s:default_white, s:none,          "NONE")
 call <SID>set_hi("SyntasticError",   s:dark_gray,     s:pink,          "NONE")
 call <SID>set_hi("SyntasticWarning", s:dark_gray,     s:light_blue,    "NONE")
 
+call <SID>set_hi("CocBold",          s:none,          s:none,          "bold")
+call <SID>set_hi("CocHighlightText", s:none,          s:off_gray,      "NONE")
+call <SID>set_hi("SignColumn",       s:none,          s:dark_gray,     "NONE")
+
+hi! link GitGutterAdd SignColumn
+hi! link GitGutterChange SignColumn
+hi! link GitGutterChangeDelete SignColumn
+hi! link GitGutterDelete SignColumn
+hi! link CocErrorSign SignColumn
+hi! link CocWarningSign SignColumn
+
+hi! link CocGitAddedSign GitGutterAdd
+hi! link CocGitChangedSign GitGutterChange
+hi! link CocGitChangeRemovedSign GitGutterChangeDelete
+hi! link CocGitRemovedSign GitGutterDelete
+hi! link CocWarningHighlight CocBold
+hi! link CocErrorHighlight CocBold
+hi! link CocInfoHighlight CocBold
+hi! link CocHintHighlight CocBold
 hi! link CocWarningFloat CocFloating
 hi! link CocErrorFloat CocFloating
 
@@ -185,7 +203,7 @@ hi! link markdownHeadingDelimiter String
 hi! link markdownRule String
 
 " https://github.com/kien/rainbow_parentheses.vim
-if !exists("g:rbpt_colorpairs")
+if ! exists("g:rbpt_colorpairs")
   let g:rbpt_colorpairs = [
         \ s:mint, s:light_blue, s:lavender, s:pink,
         \ s:mint, s:light_blue, s:lavender, s:pink,
