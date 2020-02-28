@@ -40,13 +40,16 @@ function! <SID>set_hi(name, fg, bg, style)
   exec "hi " . a:name . " gui=" . a:style
 endfun
 
+
 call <SID>set_hi("Normal",           s:default_white, s:dark_gray,     "NONE")
+call <SID>set_hi("NormalFloat",      s:default_white, s:off_gray,      "NONE")
+call <SID>set_hi("EndOfBuffer",      s:dark_gray,     s:dark_gray,     "NONE")
 call <SID>set_hi("Cursor",           s:dark_gray,     s:default_white, "NONE")
 call <SID>set_hi("Visual",           s:none,          s:light_gray,    "NONE")
 call <SID>set_hi("CursorLine",       s:none,          s:off_gray,      "NONE")
 call <SID>set_hi("LineNr",           s:light_gray,    s:dark_gray,     "NONE")
 call <SID>set_hi("VertSplit",        s:light_gray,    s:light_gray,    "NONE")
-call <SID>set_hi("MatchParen",       s:none,          s:dark_lavender,          "NONE")
+call <SID>set_hi("MatchParen",       s:none,          s:dark_lavender, "NONE")
 call <SID>set_hi("StatusLine",       s:default_white, s:light_gray,    "bold")
 call <SID>set_hi("StatusLineNC",     s:default_white, s:light_gray,    "NONE")
 call <SID>set_hi("Pmenu",            s:dark_gray,     s:light_purple,  "NONE")
@@ -57,13 +60,11 @@ call <SID>set_hi("Search",           s:none,          s:none,          "underlin
 call <SID>set_hi("Directory",        s:lavender,      s:none,          "NONE")
 call <SID>set_hi("Folded",           s:light_yellow,  s:dark_gray,     "NONE")
 call <SID>set_hi("TabLineSel",       s:light_purple,  s:dark_gray,     "NONE")
-
 call <SID>set_hi("Define",           s:gray_purple,   s:none,          "NONE")
 call <SID>set_hi("DiffAdd",          s:default_white, s:dark_green,    "bold")
 call <SID>set_hi("DiffDelete",       s:dark_pink,     s:none,          "NONE")
 call <SID>set_hi("DiffText",         s:default_white, s:dark_blue,     "bold")
 call <SID>set_hi("ErrorMsg",         s:default_white, s:dark_pink,     "NONE")
-
 call <SID>set_hi("Conditional",      s:pink,          s:none,          "NONE")
 call <SID>set_hi("Constant",         s:mint,          s:none,          "NONE")
 call <SID>set_hi("Function",         s:light_purple,  s:none,          "NONE")
@@ -73,12 +74,9 @@ call <SID>set_hi("String",           s:light_blue,    s:none,          "NONE")
 call <SID>set_hi("Title",            s:default_white, s:none,          "bold")
 call <SID>set_hi("Todo",             s:light_yellow,  s:dark_gray,     "bold")
 call <SID>set_hi("rubyBlock",        s:default_white, s:none,          "NONE")
-
 call <SID>set_hi("SyntasticError",   s:dark_gray,     s:pink,          "NONE")
 call <SID>set_hi("SyntasticWarning", s:dark_gray,     s:light_blue,    "NONE")
-
 call <SID>set_hi("CocBold",          s:none,          s:none,          "bold")
-call <SID>set_hi("CocHighlightText", s:none,          s:off_gray,      "NONE")
 call <SID>set_hi("SignColumn",       s:none,          s:dark_gray,     "NONE")
 
 hi! link GitGutterAdd SignColumn
@@ -98,6 +96,7 @@ hi! link CocInfoHighlight CocBold
 hi! link CocHintHighlight CocBold
 hi! link CocWarningFloat CocFloating
 hi! link CocErrorFloat CocFloating
+hi! link CocHighlightText CursorLine
 
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
