@@ -15,6 +15,7 @@ let s:dark_gray     = [236, g:bg_1989]
 let s:off_gray      = [240, g:off_1989]
 let s:mid_gray      = [245, "#585858"]
 let s:light_gray    = [102, "#878787"]
+let s:off_white     = [231, "#fdf8fd"]
 let s:default_white = [231, "#FFFFFF"]
 
 let s:dark_lavender = [183, "#4f2f3f"]
@@ -22,8 +23,10 @@ let s:lavender      = [183, "#dfafff"]
 let s:light_purple  = [225, "#ffdfff"]
 let s:gray_purple   = [146, "#afafd7"]
 
+let s:orange        = [218, "#ffd6af"]
 let s:pink          = [218, "#ffafdf"]
 let s:light_blue    = [159, "#afffff"]
+let s:greenish      = [159, "#d8fdda"]
 let s:mint          = [158, "#afffd7"]
 let s:light_yellow  = [229, "#ffffaf"]
 
@@ -41,6 +44,22 @@ function! <SID>set_hi(name, fg, bg, style)
 endfun
 
 
+call <SID>set_hi("DiffDelete",       s:dark_pink,     s:none,          "NONE")
+call <SID>set_hi("rubyBlock",        s:default_white, s:none,          "NONE")
+call <SID>set_hi("Define",           s:gray_purple,   s:none,          "NONE")
+call <SID>set_hi("Function",         s:greenish,      s:none,          "NONE")
+call <SID>set_hi("Directory",        s:lavender,      s:none,          "NONE")
+call <SID>set_hi("String",           s:light_blue,    s:none,          "NONE")
+call <SID>set_hi("PreProc",          s:light_purple,  s:none,          "NONE")
+call <SID>set_hi("Label",            s:light_yellow,  s:none,          "NONE")
+call <SID>set_hi("Number",           s:mint,          s:none,          "NONE")
+call <SID>set_hi("Identifier",       s:off_white,     s:none,          "NONE")
+call <SID>set_hi("Type",             s:orange,        s:none,          "NONE")
+call <SID>set_hi("Conditional",      s:pink,          s:none,          "NONE")
+call <SID>set_hi("Title",            s:default_white, s:none,          "bold")
+call <SID>set_hi("CocBold",          s:none,          s:none,          "bold")
+call <SID>set_hi("Search",           s:none,          s:none,          "underline")
+call <SID>set_hi("SpellCap",         s:light_blue,    s:none,          "underline")
 call <SID>set_hi("Normal",           s:default_white, s:dark_gray,     "NONE")
 call <SID>set_hi("NormalFloat",      s:default_white, s:off_gray,      "NONE")
 call <SID>set_hi("EndOfBuffer",      s:dark_gray,     s:dark_gray,     "NONE")
@@ -56,27 +75,14 @@ call <SID>set_hi("Pmenu",            s:dark_gray,     s:light_purple,  "NONE")
 call <SID>set_hi("PmenuSel",         s:dark_gray,     s:lavender,      "NONE")
 call <SID>set_hi("CocFloating",      s:default_white, s:mid_gray,      "NONE")
 call <SID>set_hi("IncSearch",        s:dark_gray,     s:light_yellow,  "NONE")
-call <SID>set_hi("Search",           s:none,          s:none,          "underline")
-call <SID>set_hi("Directory",        s:lavender,      s:none,          "NONE")
 call <SID>set_hi("Folded",           s:light_yellow,  s:dark_gray,     "NONE")
 call <SID>set_hi("TabLineSel",       s:light_purple,  s:dark_gray,     "NONE")
-call <SID>set_hi("Define",           s:gray_purple,   s:none,          "NONE")
 call <SID>set_hi("DiffAdd",          s:default_white, s:dark_green,    "bold")
-call <SID>set_hi("DiffDelete",       s:dark_pink,     s:none,          "NONE")
 call <SID>set_hi("DiffText",         s:default_white, s:dark_blue,     "bold")
 call <SID>set_hi("ErrorMsg",         s:default_white, s:dark_pink,     "NONE")
-call <SID>set_hi("Conditional",      s:pink,          s:none,          "NONE")
-call <SID>set_hi("Constant",         s:mint,          s:none,          "NONE")
-call <SID>set_hi("Function",         s:light_purple,  s:none,          "NONE")
-call <SID>set_hi("Label",            s:light_yellow,  s:none,          "NONE")
-call <SID>set_hi("SpellCap",         s:light_blue,    s:none,          "underline")
-call <SID>set_hi("String",           s:light_blue,    s:none,          "NONE")
-call <SID>set_hi("Title",            s:default_white, s:none,          "bold")
 call <SID>set_hi("Todo",             s:light_yellow,  s:dark_gray,     "bold")
-call <SID>set_hi("rubyBlock",        s:default_white, s:none,          "NONE")
 call <SID>set_hi("SyntasticError",   s:dark_gray,     s:pink,          "NONE")
 call <SID>set_hi("SyntasticWarning", s:dark_gray,     s:light_blue,    "NONE")
-call <SID>set_hi("CocBold",          s:none,          s:none,          "bold")
 call <SID>set_hi("SignColumn",       s:none,          s:dark_gray,     "NONE")
 
 hi! link GitGutterAdd SignColumn
@@ -110,26 +116,23 @@ hi! link Boolean Directory
 hi! link Character Directory
 hi! link Comment Define
 hi! link Float Directory
-hi! link Identifier Function
 hi! link Keyword Conditional
 hi! link NonText Normal
-hi! link Number Constant
 hi! link Operator Conditional
-hi! link PreProc Conditional
 hi! link Special Function
 hi! link SpecialKey Normal
 hi! link Statement Conditional
 hi! link SpellBad MatchParen
-hi! link StorageClass Constant
+hi! link StorageClass Number
 hi! link Tag Conditional
-hi! link Type Constant
+hi! link Constant Directory
 hi! link Underline Search
 
 hi! link rubyClass Conditional
 hi! link rubyFunction Function
 hi! link rubyInterpolationDelimiter Pmenu
 hi! link rubySymbol Function
-hi! link rubyConstant Constant
+hi! link rubyNumber Number
 hi! link rubyStringDelimiter String
 hi! link rubyBlockParameter Conditional
 hi! link rubyInstanceVariable Conditional
@@ -143,19 +146,19 @@ hi! link rubyRepeat Directory
 hi! link rubyConditional Conditional
 hi! link rubyClassVariable Label
 hi! link rubyOperator Conditional
-hi! link rubyException Constant
-hi! link rubyPseudoVariable Constant
-hi! link rubyRailsUserClass Constant
-hi! link rubyRailsARAssociationMethod Constant
-hi! link rubyRailsARMethod Constant
-hi! link rubyRailsRenderMethod Constant
-hi! link rubyRailsMethod Constant
+hi! link rubyException Number
+hi! link rubyPseudoVariable Number
+hi! link rubyRailsUserClass Number
+hi! link rubyRailsARAssociationMethod Number
+hi! link rubyRailsARMethod Number
+hi! link rubyRailsRenderMethod Number
+hi! link rubyRailsMethod Number
 hi! link rubyArrayDelimiter Conditional
 hi! link rubyInterpolation Function
 hi! link rubyInterpolationDelimiter Conditional
 
 hi! link erubyDelimiter Pmenu
-hi! link erubyRailsMethod Constant
+hi! link erubyRailsMethod Number
 
 " hi! link htmlTag Pmenu
 " hi! link htmlEndTag Pmenu
@@ -163,8 +166,8 @@ hi! link erubyRailsMethod Constant
 " hi! link htmlArg Pmenu
 " hi! link htmlSpecialChar Directory
 
-" hi! link javaScriptFunction Constant
-" hi! link javaScriptRailsFunction Constant
+" hi! link javaScriptFunction Number
+" hi! link javaScriptRailsFunction Number
 " hi! link javaScriptBraces Pmenu
 
 hi! link yamlKey Conditional
@@ -175,17 +178,17 @@ hi! link yamlPlainScalar String
 hi! link yamlBlockCollectionItemStart Conditional
 
 " hi! link cssURL DiffDelete
-" hi! link cssFunctionName Constant
+" hi! link cssFunctionName Number
 " hi! link cssColor Directory
 " hi! link cssPseudoClassId Label
 " hi! link cssClassName Label
 " hi! link cssValueLength Directory
-" hi! link cssCommonAttr Constant
+" hi! link cssCommonAttr Number
 " hi! link cssBraces Pmenu
 
 hi! link jsThis Conditional
 hi! link jsBraces Function
-hi! link jsGlobalObjects Constant
+hi! link jsGlobalObjects Number
 
 hi! link coffeeCurly Directory
 hi! link coffeeObjAssign Function
