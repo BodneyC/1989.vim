@@ -85,10 +85,10 @@ call <SID>set_hi("SyntasticError",   s:dark_gray,     s:pink,          "NONE")
 call <SID>set_hi("SyntasticWarning", s:dark_gray,     s:light_blue,    "NONE")
 call <SID>set_hi("SignColumn",       s:none,          s:dark_gray,     "NONE")
 
-hi! link GitGutterAdd SignColumn
-hi! link GitGutterChange SignColumn
-hi! link GitGutterChangeDelete SignColumn
-hi! link GitGutterDelete SignColumn
+hi! link GitGutterAdd Function
+hi! link GitGutterChange Type
+hi! link GitGutterChangeDelete Conditional
+hi! link GitGutterDelete Conditional
 hi! link CocErrorSign SignColumn
 hi! link CocWarningSign SignColumn
 
