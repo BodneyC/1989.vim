@@ -28,7 +28,7 @@ let s:pink          = [218, "#ffafdf"]
 let s:light_blue    = [159, "#afffff"]
 let s:greenish      = [159, "#d8fdda"]
 let s:mint          = [158, "#afffd7"]
-let s:light_yellow  = [229, "#ffffaf"]
+let s:light_yellow  = [229, "#ffffbf"]
 
 let s:dark_pink     = [197, "#ff005f"]
 let s:dark_green    = [29,  "#00875f"]
