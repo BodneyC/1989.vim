@@ -28,7 +28,7 @@ let s:pink          = [218, "#ffafdf"]
 let s:light_blue    = [159, "#afffff"]
 let s:greenish      = [159, "#d8fdda"]
 let s:mint          = [158, "#afffd7"]
-let s:light_yellow  = [229, "#ffffaf"]
+let s:light_yellow  = [229, "#ffffbf"]
 
 let s:dark_pink     = [197, "#ff005f"]
 let s:dark_green    = [29,  "#00875f"]
@@ -43,7 +43,6 @@ function! <SID>set_hi(name, fg, bg, style)
   exec "hi " . a:name . " gui=" . a:style
 endfun
 
-
 call <SID>set_hi("DiffDelete",       s:dark_pink,     s:none,          "NONE")
 call <SID>set_hi("rubyBlock",        s:default_white, s:none,          "NONE")
 call <SID>set_hi("Define",           s:gray_purple,   s:none,          "NONE")
@@ -53,7 +52,6 @@ call <SID>set_hi("String",           s:light_blue,    s:none,          "NONE")
 call <SID>set_hi("PreProc",          s:light_purple,  s:none,          "NONE")
 call <SID>set_hi("Label",            s:light_yellow,  s:none,          "NONE")
 call <SID>set_hi("Number",           s:mint,          s:none,          "NONE")
-call <SID>set_hi("Identifier",       s:off_white,     s:none,          "NONE")
 call <SID>set_hi("Type",             s:orange,        s:none,          "NONE")
 call <SID>set_hi("Conditional",      s:pink,          s:none,          "NONE")
 call <SID>set_hi("Title",            s:default_white, s:none,          "bold")
@@ -102,8 +100,9 @@ hi! link CocInfoHighlight CocBold
 hi! link CocHintHighlight CocBold
 hi! link CocWarningFloat CocFloating
 hi! link CocErrorFloat CocFloating
-hi! link CocHighlightText CursorLine
+hi! link CocHighlightText MatchParen
 
+hi! link Constant Conditional
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
 hi! link TabLine Normal
@@ -125,7 +124,7 @@ hi! link Statement Conditional
 hi! link SpellBad MatchParen
 hi! link StorageClass Number
 hi! link Tag Conditional
-hi! link Constant Directory
+hi! link Identifier Label
 hi! link Underline Search
 
 hi! link rubyClass Conditional
@@ -160,15 +159,15 @@ hi! link rubyInterpolationDelimiter Conditional
 hi! link erubyDelimiter Pmenu
 hi! link erubyRailsMethod Number
 
-" hi! link htmlTag Pmenu
-" hi! link htmlEndTag Pmenu
-" hi! link htmlTagName Pmenu
-" hi! link htmlArg Pmenu
-" hi! link htmlSpecialChar Directory
+hi! link htmlTag Pmenu
+hi! link htmlEndTag Pmenu
+hi! link htmlTagName Pmenu
+hi! link htmlArg Pmenu
+hi! link htmlSpecialChar Directory
 
-" hi! link javaScriptFunction Number
-" hi! link javaScriptRailsFunction Number
-" hi! link javaScriptBraces Pmenu
+hi! link javaScriptFunction Number
+hi! link javaScriptRailsFunction Number
+hi! link javaScriptBraces Pmenu
 
 hi! link yamlKey Conditional
 hi! link yamlAnchor Pmenu
@@ -177,14 +176,14 @@ hi! link yamlDocumentHeader Label
 hi! link yamlPlainScalar String
 hi! link yamlBlockCollectionItemStart Conditional
 
-" hi! link cssURL DiffDelete
-" hi! link cssFunctionName Number
-" hi! link cssColor Directory
-" hi! link cssPseudoClassId Label
-" hi! link cssClassName Label
-" hi! link cssValueLength Directory
-" hi! link cssCommonAttr Number
-" hi! link cssBraces Pmenu
+hi! link cssURL DiffDelete
+hi! link cssFunctionName Number
+hi! link cssColor Directory
+hi! link cssPseudoClassId Label
+hi! link cssClassName Label
+hi! link cssValueLength Directory
+hi! link cssCommonAttr Number
+hi! link cssBraces Pmenu
 
 hi! link jsThis Conditional
 hi! link jsBraces Function
