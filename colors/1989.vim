@@ -46,6 +46,7 @@ endfun
 call <SID>set_hi("DiffDelete",       s:dark_pink,     s:none,          "NONE")
 call <SID>set_hi("rubyBlock",        s:default_white, s:none,          "NONE")
 call <SID>set_hi("Define",           s:gray_purple,   s:none,          "NONE")
+call <SID>set_hi("Comment",          s:gray_purple,   s:none,          "italic")
 call <SID>set_hi("Function",         s:greenish,      s:none,          "NONE")
 call <SID>set_hi("Directory",        s:lavender,      s:none,          "NONE")
 call <SID>set_hi("String",           s:light_blue,    s:none,          "NONE")
@@ -67,6 +68,7 @@ call <SID>set_hi("CursorLine",       s:none,          s:off_gray,      "NONE")
 call <SID>set_hi("LineNr",           s:light_gray,    s:dark_gray,     "NONE")
 call <SID>set_hi("VertSplit",        s:light_gray,    s:light_gray,    "NONE")
 call <SID>set_hi("MatchParen",       s:none,          s:dark_lavender, "NONE")
+call <SID>set_hi("SpellBad",         s:none,          s:dark_lavender, "italic,underline")
 call <SID>set_hi("StatusLine",       s:default_white, s:light_gray,    "bold")
 call <SID>set_hi("StatusLineNC",     s:default_white, s:light_gray,    "NONE")
 call <SID>set_hi("Pmenu",            s:dark_gray,     s:light_purple,  "NONE")
@@ -113,7 +115,6 @@ hi! link WarningMsg ErrorMsg
 hi! link Boolean Directory
 
 hi! link Character Directory
-hi! link Comment Define
 hi! link Float Directory
 hi! link Keyword Conditional
 hi! link NonText Normal
@@ -121,57 +122,65 @@ hi! link Operator Conditional
 hi! link Special Function
 hi! link SpecialKey Normal
 hi! link Statement Conditional
-hi! link SpellBad MatchParen
 hi! link StorageClass Number
 hi! link Tag Conditional
 hi! link Identifier Label
 hi! link Underline Search
 
-hi! link rubyClass Conditional
-hi! link rubyFunction Function
-hi! link rubyInterpolationDelimiter Pmenu
-hi! link rubySymbol Function
-hi! link rubyNumber Number
-hi! link rubyStringDelimiter String
-hi! link rubyBlockParameter Conditional
-hi! link rubyInstanceVariable Conditional
-hi! link rubyInclude Conditional
-hi! link rubyGlobalVariable Label
-hi! link rubyRegexp Label
-hi! link rubyRegexpDelimiter Label
-hi! link rubyEscape Directory
-hi! link rubyControl Directory
-hi! link rubyRepeat Directory
-hi! link rubyConditional Conditional
-hi! link rubyClassVariable Label
-hi! link rubyOperator Conditional
-hi! link rubyException Number
-hi! link rubyPseudoVariable Number
-hi! link rubyRailsUserClass Number
-hi! link rubyRailsARAssociationMethod Number
-hi! link rubyRailsARMethod Number
-hi! link rubyRailsRenderMethod Number
-hi! link rubyRailsMethod Number
-hi! link rubyArrayDelimiter Conditional
-hi! link rubyInterpolation Function
-hi! link rubyInterpolationDelimiter Conditional
+" hi! link rubyClass Conditional
+" hi! link rubyFunction Function
+" hi! link rubyInterpolationDelimiter PreProc
+" hi! link rubySymbol Function
+" hi! link rubyNumber Number
+" hi! link rubyStringDelimiter String
+" hi! link rubyBlockParameter Conditional
+" hi! link rubyInstanceVariable Conditional
+" hi! link rubyInclude Conditional
+" hi! link rubyGlobalVariable Label
+" hi! link rubyRegexp Label
+" hi! link rubyRegexpDelimiter Label
+" hi! link rubyEscape Directory
+" hi! link rubyControl Directory
+" hi! link rubyRepeat Directory
+" hi! link rubyConditional Conditional
+" hi! link rubyClassVariable Label
+" hi! link rubyOperator Conditional
+" hi! link rubyException Number
+" hi! link rubyPseudoVariable Number
+" hi! link rubyRailsUserClass Number
+" hi! link rubyRailsARAssociationMethod Number
+" hi! link rubyRailsARMethod Number
+" hi! link rubyRailsRenderMethod Number
+" hi! link rubyRailsMethod Number
+" hi! link rubyArrayDelimiter Conditional
+" hi! link rubyInterpolation Function
+" hi! link rubyInterpolationDelimiter Conditional
 
-hi! link erubyDelimiter Pmenu
-hi! link erubyRailsMethod Number
+" hi! link erubyDelimiter PreProc
+" hi! link erubyRailsMethod Number
 
-hi! link htmlTag Pmenu
-hi! link htmlEndTag Pmenu
-hi! link htmlTagName Pmenu
-hi! link htmlArg Pmenu
+hi! link htmlH1 Identifier
+hi! link htmlH2 Identifier
+hi! link htmlH3 Identifier
+hi! link htmlH4 Identifier
+hi! link htmlH5 Identifier
+hi! link htmlH6 Identifier
+hi! link htmlTag PreProc
+hi! link htmlEndTag PreProc
+hi! link htmlTagName PreProc
+hi! link htmlArg PreProc
 hi! link htmlSpecialChar Directory
+
+hi! link mkdHeading String
+hi! link mkdListItem String
 
 hi! link javaScriptFunction Number
 hi! link javaScriptRailsFunction Number
-hi! link javaScriptBraces Pmenu
+hi! link javaScriptBraces PreProc
 
 hi! link yamlKey Conditional
-hi! link yamlAnchor Pmenu
-hi! link yamlAlias Pmenu
+hi! link yamlAnchor PreProc
+hi! link yamlAlias PreProc
 hi! link yamlDocumentHeader Label
 hi! link yamlPlainScalar String
 hi! link yamlBlockCollectionItemStart Conditional
@@ -183,25 +192,16 @@ hi! link cssPseudoClassId Label
 hi! link cssClassName Label
 hi! link cssValueLength Directory
 hi! link cssCommonAttr Number
-hi! link cssBraces Pmenu
+hi! link cssBraces PreProc
 
 hi! link jsThis Conditional
 hi! link jsBraces Function
 hi! link jsGlobalObjects Number
 
-hi! link coffeeCurly Directory
-hi! link coffeeObjAssign Function
+" hi! link coffeeCurly Directory
+" hi! link coffeeObjAssign Function
 
-hi! link cjsxAttribProperty Directory
-
-hi! link markdownH1 String
-hi! link markdownH2 String
-hi! link markdownH3 String
-hi! link markdownH4 String
-hi! link markdownH5 String
-hi! link markdownH6 String
-hi! link markdownHeadingDelimiter String
-hi! link markdownRule String
+" hi! link cjsxAttribProperty Directory
 
 " https://github.com/kien/rainbow_parentheses.vim
 if ! exists("g:rbpt_colorpairs")
